@@ -314,13 +314,13 @@ translation['one']
 ~~~
  
 
-Les dictionnaires fonctionnent comme les listes, sauf que l'index est créé en utilisant *clès* **keys**.
+Les dictionnaires fonctionnent comme les listes, sauf que l'index est créé en utilisant des *clès* ou **keys**.
 Tu peux considérer une clé comme un nom ou un identifiant unique pour un ensemble de valeurs
 du dictionnaire. Les clés ne peuvent avoir que des types particuliers, elles doivent être "**hashable**". Les strings et les types numériques sont acceptables, mais les listes ne le sont pas.
 
 ~~~
-rev = {1: 'un', 2: 'deux'}
-rev[1]
+dico = {1: 'un', 2: 'deux'}
+dico[1]
 ~~~
 
 ~~~
@@ -344,9 +344,9 @@ En Python, un "**Traceback**" est un bloc d'erreur multiligne imprimé pour l'ut
 Pour ajouter un élément au dictionnaire, nous affectons une valeur à une nouvelle clé:
 
 ~~~
-rev = {1: 'un', 2: 'deux'}
-rev[3] = 'trois'
-rev
+dico = {1: 'un', 2: 'deux'}
+dico[3] = 'trois'
+dico
 ~~~
 
 ~~~
@@ -357,7 +357,7 @@ rev
 Utiliser des boucles `for` avec des dictionnaires est un peu plus compliqué. Nous pouvons le faire
 de deux manières:
 ~~~
-for key, value in rev.items():
+for key, value in dico.items():
     print(key, '->', value)
 ~~~
 
@@ -372,8 +372,8 @@ for key, value in rev.items():
 ou
 
 ~~~
-for key in rev.keys():
-    print(key, '->', rev[key])
+for key in dico.keys():
+    print(key, '->', dico[key])
 ~~~
 
 ~~~
@@ -386,9 +386,9 @@ for key in rev.keys():
 
 ## Modification de dictionnaires 
 
-> 1. Commence par imprimer la valeur du `rev` à l'écran.
+> 1. Commence par imprimer la valeur du `dico` à l'écran.
 > 2. Réaffecte la deuxième valeur pour qu'il ne lise plus "deux" mais "pomme".
-> 3. Imprimez à nouveau la valeur de `rev`  et regarde si la valeur a changé.
+> 3. Imprimez à nouveau la valeur de `dico`  et regarde si la valeur a changé.
 >
 
 
@@ -410,9 +410,3 @@ print(z)
 ~~~
 42
 ~~~
-
-
-{% include links.md%}
-
-
-
