@@ -68,7 +68,7 @@ In[]:  text
 ```
 
 ```
-"Charpenterie des données "
+Out[]:  "Charpenterie des données "
 ```
 
 Tout dans Python a un type. Pour obtenir le type de quelque chose, nous pouvons passer cette chose
