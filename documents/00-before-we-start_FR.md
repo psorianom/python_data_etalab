@@ -17,7 +17,7 @@ keypoints:
 <br />
 ## Qu'est-ce que Python?
 
-Python est un langage de programmation du type dit général qui permet le développement rapide d’applications d’analyse de données. Le mot "Python" désigne à la fois le langage de programmation et l'outil qui exécute les ** scripts ** écrits en langage "Python".
+Python est un langage de programmation du type dit général qui permet le développement rapide d’applications d’analyse de données. Le mot "Python" désigne à la fois le langage de programmation et l'outil qui exécute les **scripts** écrits en langage "Python".
 
 Ses principaux avantages sont les suivants:
 
