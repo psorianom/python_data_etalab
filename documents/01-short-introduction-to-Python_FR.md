@@ -18,8 +18,8 @@ Python est un langage interprété qui peut être utilisé de deux manières:
 
 
 
-```
-2 + 2
+```python
+In[]: 2 + 2
 ```
 
 
@@ -28,8 +28,8 @@ Python est un langage interprété qui peut être utilisé de deux manières:
 ```
 
 
-```
-print ("Hello World")
+```python
+In[]: print ("Hello World")
 ```
 
 ```
@@ -40,7 +40,7 @@ Hello World
 
 * Mode "interpreteur": en lançant la commande `python` suivi par le nom d'un fichier qui contient un script. 
 
-```
+```bash
 user:host:~$ python my_script.py
 Hello World
 ```
@@ -54,9 +54,9 @@ Nous utliserons le mode interactif dans cet atelier.
 Une des opérations la plus basique que nous puissions faire en Python consiste à affecter des valeurs aux variables:
 
 ```python
-text = "Data Carpentry" # Un exemple de string
-number = 42 # Un exemple de nombre integer
-pi_value = 3.1415 # Un exemple de float
+In[1]:  text = "Data Carpentry" # Un exemple de string
+        number = 42 # Un exemple de nombre integer
+        pi_value = 3.1415 # Un exemple de float
 ```
 
 Ici nous avons assigné des données aux variables `text`,`number` et `pi_value`, en
@@ -77,25 +77,25 @@ Tout dans Python a un type. Pour obtenir le type de quelque chose, nous pouvons 
 à la fonction `type`:
 
 ```python
-type (text)
+In[1]:  type (text)
 ```
 
 ```python
-<classe 'str'>
-```
-
-
-```python
-type(number)
-```
-
-```python
-<classe 'int'>
+In[1]:  <classe 'str'>
 ```
 
 
 ```python
-type (6.02)
+In[1]:  type(number)
+```
+
+```python
+In[1]:  <classe 'int'>
+```
+
+
+```python
+In[1]:  type(6.02)
 ```
 
 ```python
@@ -110,7 +110,7 @@ ou des formes de texte plus exotiques (même des emoji!).
 Nous pouvons également voir la valeur de quelque chose en utilisant une autre fonction intégrée, `print`:
 
 ```python
-print(text)
+In[1]:  print(text)
 ```
 
 ```
@@ -118,11 +118,11 @@ Data Carpentry
 ```
 
 ```python
-print(11)
+In[1]:  print(11)
 ```
 
-```python
-print(11)
+```
+11
 ```
 
 
@@ -137,7 +137,7 @@ Nous pouvons effectuer des calculs mathématiques en Python en utilisant les op�
 `+, -, /, *,%`:
 
 ```python
-2 + 2 # Sum
+In[1]:  2 + 2 # Sum
 ```
 
 
@@ -147,7 +147,7 @@ Nous pouvons effectuer des calculs mathématiques en Python en utilisant les op�
 
 
 ```python
-6 * 7 # Multiplication
+In[1]:  6 * 7 # Multiplication
 ```
 
 ```
@@ -155,7 +155,7 @@ Nous pouvons effectuer des calculs mathématiques en Python en utilisant les op�
 ```
 
 ```python
-2 ** 16 # Puissance
+In[1]:  2 ** 16 # Puissance
 ```
 
 ```
@@ -163,7 +163,7 @@ Nous pouvons effectuer des calculs mathématiques en Python en utilisant les op�
 ```
 
 ```python
-13 % 5 # Modulo
+In[1]:  13 % 5 # Modulo
 ```
 
 ```
@@ -178,16 +178,15 @@ que `and, or, not`. Le type de données renvoyées par ces opérateurs
 s'appelle _**boolean**_ et renvoie vrai ou faux (true ou false), comme indiqué ci-dessous.
 
 ```python
-3 > 4
+In[1]:  3 > 4
 ```
 
-```python
+```
 False
 ```
 
-
 ```python
-True and True
+In[1]:  True and True
 ```
 
 ```python
@@ -196,7 +195,7 @@ Vrai
 
 
 ```python
-True or False
+In[1]:  True or False
 ```
 
 ```python
@@ -205,7 +204,7 @@ True
 
 
 ```python
-True and False
+In[1]:  True and False
 ```
 
 ```python
@@ -221,8 +220,8 @@ False
 Chaque élément est accessible via un index. Notez qu'en Python, les index commencent par 0 au lieu de 1:
 
 ```python
-nombres = [1, 2, 3]
-nombres[0]
+In[1]:  nombres = [1, 2, 3]
+        nombres[0]
 ```
 
 ```
@@ -234,8 +233,8 @@ Vous pouvez utiliser une boucle `for` pour accéder aux éléments d'une liste o
 structures de données Python, l'un après l'autre:
 
 ```python
-for num in numbers:
-    print(num)
+In[1]:  for num in numbers:
+          print(num)
 
 ```
 
@@ -256,8 +255,8 @@ entre parenthèses. Voyons un exemple en utilisant `append`:
 
 
 ```python
-nombres.append (4)
-print(nombres)
+In[1]:  nombres.append (4)
+        print(nombres)
 ```
 
 
@@ -270,7 +269,7 @@ Pour savoir quelles méthodes sont disponibles pour un
 objet, nous pouvons utiliser la commande `help` intégrée:
 
 ```python
-help(nombres)
+In[1]:  help(nombres)
 
 Help on list object:
 
@@ -288,11 +287,11 @@ sont créés en plaçant les valeurs séparées par des virgules entre parenthè
 
 ```python
 # Les tuples utilisent des parenthèses
-une_tuple = (1, 2, 3)
-autre_tuple = ('blue', 'green', 'red') 
+In[1]:  une_tuple = (1, 2, 3)
+        autre_tuple = ('blue', 'green', 'red') 
 
 # Remarque: les listes utilisent des crochets
-une_list = [1, 2, 3]
+In[1]:  une_list = [1, 2, 3]
 ```
 
 
@@ -311,8 +310,8 @@ une_list = [1, 2, 3]
 Un dictionnaire **dictionary** est un conteneur qui stocke des paires d'objets - clés et valeurs.
 
 ```python
-translation = {'one':1, 'two':2}
-translation['one']
+In[1]:  translation = {'one':1, 'two':2}
+In[1]:  translation['one']
 ```
 
 ```
@@ -325,8 +324,8 @@ Tu peux considérer une clé comme un nom ou un identifiant unique pour un ensem
 du dictionnaire. Les clés ne peuvent avoir que des types particuliers, elles doivent être "**hashable**". Les strings et les types numériques sont acceptables, mais les listes ne le sont pas.
 
 ```python
-dico = {1: 'un', 2: 'deux'}
-dico[1]
+In[1]:  dico = {1: 'un', 2: 'deux'}
+In[1]:  dico[1]
 ```
 
 ```
@@ -335,7 +334,7 @@ dico[1]
 
 
 ```python
-mauvais = {[1, 2, 3]: 3}
+In[1]:  mauvais = {[1, 2, 3]: 3}
 ```
 
 ```python
@@ -350,9 +349,9 @@ En Python, un "**Traceback**" est un bloc d'erreur multiligne imprimé pour l'ut
 Pour ajouter un élément au dictionnaire, nous affectons une valeur à une nouvelle clé:
 
 ```python
-dico = {1: 'un', 2: 'deux'}
-dico[3] = 'trois'
-dico
+In[1]:  dico = {1: 'un', 2: 'deux'}
+        dico[3] = 'trois'
+        dico
 ```
 
 ```python
@@ -363,8 +362,8 @@ dico
 Utiliser des boucles `for` avec des dictionnaires est un peu plus compliqué. Nous pouvons le faire
 de deux manières:
 ```python
-for key, value in dico.items():
-    print(key, '->', value)
+In[1]:  for key, value in dico.items():
+            print(key, '->', value)
 ```
 
 
@@ -378,8 +377,8 @@ for key, value in dico.items():
 ou
 
 ```python
-for key in dico.keys():
-    print(key, '->', dico[key])
+In[1]:    for key in dico.keys():
+            print(key, '->', dico[key])
 ```
 
 ```
@@ -406,12 +405,12 @@ Par exemple, une fonction prenant deux arguments etleur somme
 peut être définie comme suit:
 
 ```python
-def add_function(a, b):
-    result = a + b
-    return result
+In[1]:    def add_function(a, b):
+              result = a + b
+              return result
 
-z = add_function(20, 22)
-print(z)
+          z = add_function(20, 22)
+          print(z)
 ```
 
 ```
