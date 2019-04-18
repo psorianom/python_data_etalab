@@ -1,18 +1,13 @@
----
-title: Brève introduction à la programmation Python
-teaching: 0
-exercises: 0
-questions:
-   - "Qu'est-ce que Python?"
-   - "Pourquoi devriez-vous apprendre le python?"
-objectives:
-   - "Décrire les avantages de l’utilisation de la programmation par rapport à la réalisation manuelle de tâches répétitives."
-   - "Définir les types de données en Python: **chaînes** (strings), **nombres entiers** (integers) et **flottants** (floats)."
-   - "Effectuer des opérations mathématiques en Python en utilisant des opérateurs de base."
-   - "Dans le contexte de Python, définissez: **listes** (lists), **tuples** et **dictionnaires** (dictionaries)."
-keypoints:
-   - "FIXME"
----
+
+## Questions:
+   - Qu'est-ce que Python?
+   - Pourquoi devriez-vous apprendre le python?
+   
+## Objectives:
+   - Décrire les avantages de l’utilisation de la programmation par rapport à la réalisation manuelle de tâches répétitives.
+   - Définir les types de données en Python: **chaînes** (strings), **nombres entiers** (integers) et **flottants** (floats).
+   - Effectuer des opérations mathématiques en Python en utilisant des opérateurs de base.
+   - Dans le contexte de Python, définissez: **listes** (lists), **tuples** et **dictionnaires** (dictionaries).
 
 ## L'interpréteur
 
@@ -42,6 +37,10 @@ Hello World
 ~~~
 {: .output}
 
+
+* Mode "interpreteur": en lançant la commande `python` suivi par le nom d'un fichier qui contient un script. 
+
+Nous utliserons le mode interactif dans cet atelier. 
 
 ## Introduction aux types de données Python intégrés
 
