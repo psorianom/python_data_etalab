@@ -1,20 +1,3 @@
----
-title: Avant de commencer à
-teaching: 30
-exercises: 0
-questions:
- - "Qu'est-ce que Python et pourquoi devrais-je l'apprendre?"
-objectives:
- - "Organiser les fichiers et les répertoires pour un ensemble d’analyses en tant que projet Python et comprendre l’objet du répertoire de travail."
- - "Savoir où chercher de l'aide."
- - "Démontrez comment fournir suffisamment d'informations pour résoudre des problèmes avec la communauté des utilisateurs de Python."
-keypoints:
- - "Python est un langage de programmation open source et indépendante de la plate-forme "
- - "SciPy est un écosystème pour Python qui fournit les outils nécessaires pour le calcul scientifique"
- - "Jupyter Notebook est un excellent outil pour écrire du code et interagir avec Python, Etant donné sa grande communauté, il est facile de trouver de l'aide sur Internet "
----
-
-<br />
 ## Qu'est-ce que Python?
 
 Python est un langage de programmation du type dit général qui permet le développement rapide d’applications d’analyse de données. Le mot "Python" désigne à la fois le langage de programmation et l'outil qui exécute les **scripts** écrits en langage "Python".
@@ -46,21 +29,23 @@ De plus en plus de revues scientifiques et d'agences de financement s'attendent 
 Python fournit un cadre qui permet à quiconque de combiner des approches de différentes disciplines pour mieux répondre à tes besoins en analyse.
 
 ### Python possède une grande communauté conviviale.
-Des milliers de personnes utilisent Python quotidiennement. Beaucoup d'entre eux sont prêts à vous aider à travers les listes de diffusion et les sites Web, tels que [Stack Overflow] (https://stackoverflow.com) et le portail de la [communauté Anaconda] (https://www.anaconda.com/communauté /).
+Des milliers de personnes utilisent Python quotidiennement. Beaucoup d'entre eux sont prêts à vous aider à travers les listes de diffusion et les sites Web, tels que [Stack Overflow](https://stackoverflow.com) et le portail de la [communauté Anaconda](https://www.anaconda.com/communauté /).
 
 
 <br />
+
 ## Connaître Anaconda
-La distribution Python [Anaconda] (https://www.anaconda.com) comprend de nombreux paquets populaires, tels que la console Ipython, Jupyter Notebook et Spyder IDE.
+La distribution Python [Anaconda](https://www.anaconda.com) comprend de nombreux paquets populaires, tels que la console Ipython, Jupyter Notebook et Spyder IDE.
 Jetez un coup d'œil au navigateur Anaconda. Vous pouvez exécuter des programmes à partir du navigateur ou utiliser la ligne de commande.
 
-[Jupyter Notebook] (https://jupyter.org) est une application Web open source qui vous permet de créer et de partager des documents en combinant du code, des graphiques et du texte narratif.
+[Jupyter Notebook](https://jupyter.org) est une application Web open source qui vous permet de créer et de partager des documents en combinant du code, des graphiques et du texte narratif.
 
-[Spyder] (https://spyder-ide.github.io) est un **environnement de développement intégré** (IDE) qui vous permet d'écrire des **scripts** de Python et d'interagir avec le logiciel de Python à partir d'une seule interface.
+[Spyder](https://spyder-ide.github.io) est un **environnement de développement intégré** (IDE) qui vous permet d'écrire des **scripts** de Python et d'interagir avec le logiciel de Python à partir d'une seule interface.
 
-Anaconda est également livré avec un gestionnaire de paquets appelé [conda] (https://conda.io/docs/), ce qui facilite l’installation et la mise à jour de paquets supplémentaires.
+Anaconda est également livré avec un gestionnaire de paquets appelé [conda](https://conda.io/docs/), ce qui facilite l’installation et la mise à jour de paquets supplémentaires.
 
 <br />
+
 ## Projet d'analyse de données: bonnes pratiques
 
 Il est judicieux de sauvegarder les données, l’analyse, et le texte associés dans un seul dossier.
@@ -91,17 +76,6 @@ La programmation est un processus en plusieurs étapes qui implique:
 4. Testez, validez et ajustez la solution mise en œuvre.
 
 Alors que _"Programmation"_ fait référence à toutes les étapes nommées, _"l'Encodage"_ ne fait référence qu'à l'étape 3: _"Implémente la solution dans un langage de programmation spécifique"_.
-
-#### Si vous travaillez avec le bloc-notes Jupyter:
-
-Vous pouvez taper le code Python dans une cellule de code, puis l'exécuter en appuyant sur Maj+Entrée.
-
-La sortie sera imprimée directement sous la cellule d'entrée.
-Vous pouvez reconnaître une cellule de code en utilisant le signe `In []:` au début de la cellule et une cellule de sortie par le signe `Out []:`.
-
-Appuyez sur le bouton __+__ dans la barre de menus pour ajouter une nouvelle cellule.
-
-Toutes tes commandes telles que les sorties seront sauvegardées avec le cahier.
 
 ## Comment en savoir plus après l'atelier?
 
