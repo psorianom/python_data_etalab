@@ -47,7 +47,7 @@ Hello World
 
 Nous utliserons le mode interactif dans cet atelier. 
 
-## Introduction aux types de données Python intégrés
+## Introduction aux types de données Python 
 
 ### Strings, integers et floats
 
