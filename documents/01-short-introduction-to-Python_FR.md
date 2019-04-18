@@ -218,7 +218,7 @@ Out[]:  False
 Chaque élément est accessible via un index. Notez qu'en Python, les index commencent par 0 au lieu de 1:
 
 ```python
-In[]:  nombres = [1, 2, 3]
+In[]:   nombres = [1, 2, 3]
         nombres[0]
 ```
 
@@ -253,7 +253,7 @@ entre parenthèses. Voyons un exemple en utilisant `append`:
 
 
 ```python
-In[]:  nombres.append (4)
+In[]:   nombres.append (4)
         print(nombres)
 ```
 
@@ -289,7 +289,7 @@ In[]:   une_tuple = (1, 2, 3)
         autre_tuple = ('blue', 'green', 'red') 
 
 # Remarque: les listes utilisent des crochets
-In[]:  une_list = [1, 2, 3]
+In[]:   une_list = [1, 2, 3]
 ```
 
 
@@ -349,7 +349,7 @@ En Python, un "**Traceback**" est un bloc d'erreur multiligne imprimé pour l'ut
 Pour ajouter un élément au dictionnaire, nous affectons une valeur à une nouvelle clé:
 
 ```python
-In[]:  dico = {1: 'un', 2: 'deux'}
+In[]:   dico = {1: 'un', 2: 'deux'}
         dico[3] = 'trois'
         dico
 ```
