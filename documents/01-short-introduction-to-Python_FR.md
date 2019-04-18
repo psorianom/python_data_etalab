@@ -18,27 +18,32 @@ Python est un langage interprété qui peut être utilisé de deux manières:
 
 
 
-~~~
+```
 2 + 2
-~~~
+```
 
 
-~~~
+```
 4
-~~~
+```
 
 
-~~~
+```
 print ("Hello World")
-~~~
+```
 
-~~~
+```
 Hello World
-~~~
+```
 
 
 
 * Mode "interpreteur": en lançant la commande `python` suivi par le nom d'un fichier qui contient un script. 
+
+```
+user:host:~$ python my_script.py
+Hello World
+```
 
 Nous utliserons le mode interactif dans cet atelier. 
 
@@ -48,55 +53,54 @@ Nous utliserons le mode interactif dans cet atelier.
 
 Une des opérations la plus basique que nous puissions faire en Python consiste à affecter des valeurs aux variables:
 
-~~~
+```python
 text = "Data Carpentry" # Un exemple de string
 number = 42 # Un exemple de nombre integer
 pi_value = 3.1415 # Un exemple de float
-~~~
-{ : .language-python}
+```
 
 Ici nous avons assigné des données aux variables `text`,`number` et `pi_value`, en
 utilisant l'opérateur d'affectation `=`. Pour vérifier la valeur d'une variable, nous
 pouvons écrire le nom de la variable dans l'interpréteur et appuyer sur Màj+Renvoyer:
 
-~~~
+```
 text
-~~~
+```
 
-~~~
+```
 "Charpenterie des données "
-~~~
+```
 
 
 
 Tout dans Python a un type. Pour obtenir le type de quelque chose, nous pouvons passer cette chose
 à la fonction `type`:
 
-~~~
+```python
 type (text)
-~~~
+```
 
-~~~
+```python
 <classe 'str'>
-~~~
+```
 
 
-~~~
-type (number)
-~~~
+```python
+type(number)
+```
 
-~~~
+```python
 <classe 'int'>
-~~~
+```
 
 
-~~~
+```python
 type (6.02)
-~~~
+```
 
-~~~
+```python
 <class 'float'>
-~~~
+```
 
 
 
@@ -105,21 +109,21 @@ ou des formes de texte plus exotiques (même des emoji!).
 
 Nous pouvons également voir la valeur de quelque chose en utilisant une autre fonction intégrée, `print`:
 
-~~~
+```python
 print(text)
-~~~
+```
 
-~~~
+```
 Data Carpentry
-~~~
+```
 
-~~~
+```python
 print(11)
-~~~
+```
 
-~~~
+```python
 print(11)
-~~~
+```
 
 
 
@@ -132,39 +136,39 @@ leçon, nous verrons des méthodes et des fonctions définies par l'utilisateur.
 Nous pouvons effectuer des calculs mathématiques en Python en utilisant les opérateurs de base
 `+, -, /, *,%`:
 
-~~~
+```python
 2 + 2 # Sum
-~~~
+```
 
 
-~~~
+```
 4
-~~~
+```
 
 
-~~~
+```python
 6 * 7 # Multiplication
-~~~
+```
 
-~~~
+```
 42
-~~~
+```
 
-~~~
+```python
 2 ** 16 # Puissance
-~~~
+```
 
-~~~
+```
 65536
-~~~
+```
 
-~~~
+```python
 13 % 5 # Modulo
-~~~
+```
 
-~~~
+```
 3
-~~~
+```
 
 
 
@@ -173,74 +177,74 @@ Nous pouvons également utiliser opérateurs de comparaison :
 que `and, or, not`. Le type de données renvoyées par ces opérateurs
 s'appelle _**boolean**_ et renvoie vrai ou faux (true ou false), comme indiqué ci-dessous.
 
-~~~
+```python
 3 > 4
-~~~
+```
 
-~~~
+```python
 False
-~~~
+```
 
 
-~~~
+```python
 True and True
-~~~
+```
 
-~~~
+```python
 Vrai
-~~~
+```
 
 
-~~~
+```python
 True or False
-~~~
+```
 
-~~~
+```python
 True
-~~~
+```
 
 
-~~~
+```python
 True and False
-~~~
+```
 
-~~~
+```python
 False
-~~~
+```
 
 
 ## Séquences: Listes et Tuples
 
 ### Listes
 
-**list** (ou les listes) sont une structure de données commune permettant de stocker une séquence ordonnée d'
-éléments. Chaque élément est accessible via un index. Notez qu'en Python, les index commencent par 0 au lieu de 1:
+**list** (ou liste) est une structure de données commune permettant de stocker une séquence ordonnée d'éléments.
+Chaque élément est accessible via un index. Notez qu'en Python, les index commencent par 0 au lieu de 1:
 
-~~~
+```python
 nombres = [1, 2, 3]
 nombres[0]
-~~~
+```
 
-~~~
+```
 1
-~~~
+```
 
 
 Vous pouvez utiliser une boucle `for` pour accéder aux éléments d'une liste ou à d'autres
 structures de données Python, l'un après l'autre:
 
-~~~
+```python
 for num in numbers:
     print(num)
 
-~~~
+```
 
 
-~~~
+```
 1
 2
 3
-~~~
+```
 
 
 **L'indentation** est très importante en Python. Note que la deuxième ligne dans l'exemple ci-dessus est indenté. C’est ainsi que Python crée un bloc de code. 
@@ -250,21 +254,22 @@ sont un moyen d'interagir avec un objet (une liste, par exemple). Nous pouvons i
 méthode en utilisant le point `.` suivi du nom de la méthode et d'une liste d'arguments
 entre parenthèses. Voyons un exemple en utilisant `append`:
 
-~~~
+
+```python
 nombres.append (4)
 print(nombres)
-~~~
+```
 
 
-~~~
+```
 [1, 2, 3, 4]
-~~~
+```
 
 
 Pour savoir quelles méthodes sont disponibles pour un
 objet, nous pouvons utiliser la commande `help` intégrée:
 
-~~~
+```python
 help(nombres)
 
 Help on list object:
@@ -273,8 +278,7 @@ class list(object)
  |  list() -> new empty list
  |  list(iterable) -> new list initialized from iterable's items
  ...
-~~~
-iterable
+```
 
 ### Tuples
 
@@ -282,21 +286,23 @@ Un **tuple** est similaire à une liste dans le sens qoù il s'agit d'une séque
 Cependant, les n-uplets ne peuvent plus être changés une fois créés (ils sont "immuables"). Les tuples
 sont créés en plaçant les valeurs séparées par des virgules entre parenthèses `()`.
 
-~~~
+```python
 # Les tuples utilisent des parenthèses
 une_tuple = (1, 2, 3)
-autre_tuple = ('blue', 'green', 'red') '
+autre_tuple = ('blue', 'green', 'red') 
 
 # Remarque: les listes utilisent des crochets
 une_list = [1, 2, 3]
-~~~
+```
 
+
+## Défi
 
 > ## Tuples _vs._ Lists
 > 1. Que se passe-t-il lorsque tu exécutes `une_list[1] = 5` ?
 > 2. Que se passe-t-il lorsque tu exécutes `une_tuple[2] = 5`?
 > 3. Que dit `type(une_tuple)` à propos de `une_tuple`?
->
+
 
 
 
@@ -304,87 +310,88 @@ une_list = [1, 2, 3]
 
 Un dictionnaire **dictionary** est un conteneur qui stocke des paires d'objets - clés et valeurs.
 
-~~~
+```python
 translation = {'one':1, 'two':2}
 translation['one']
-~~~
+```
 
-~~~
+```
 1
-~~~
+```
  
 
 Les dictionnaires fonctionnent comme les listes, sauf que l'index est créé en utilisant des *clès* ou **keys**.
 Tu peux considérer une clé comme un nom ou un identifiant unique pour un ensemble de valeurs
 du dictionnaire. Les clés ne peuvent avoir que des types particuliers, elles doivent être "**hashable**". Les strings et les types numériques sont acceptables, mais les listes ne le sont pas.
 
-~~~
+```python
 dico = {1: 'un', 2: 'deux'}
 dico[1]
-~~~
+```
 
-~~~
+```
 'un'
-~~~
+```
 
 
-~~~
+```python
 mauvais = {[1, 2, 3]: 3}
-~~~
+```
 
-~~~
+```python
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unhashable type: 'list'
-~~~
+```
 
 
 En Python, un "**Traceback**" est un bloc d'erreur multiligne imprimé pour l'utilisateur.
 
 Pour ajouter un élément au dictionnaire, nous affectons une valeur à une nouvelle clé:
 
-~~~
+```python
 dico = {1: 'un', 2: 'deux'}
 dico[3] = 'trois'
 dico
-~~~
+```
 
-~~~
+```python
 {1: 'un', 2: 'deux', 3: 'trois'}
-~~~
+```
 
 
 Utiliser des boucles `for` avec des dictionnaires est un peu plus compliqué. Nous pouvons le faire
 de deux manières:
-~~~
+```python
 for key, value in dico.items():
     print(key, '->', value)
-~~~
+```
 
 
-~~~
+```
 1 -> un
 2 -> deux
 3 -> trois
-~~~
+```
 
 
 ou
 
-~~~
+```python
 for key in dico.keys():
     print(key, '->', dico[key])
-~~~
+```
 
-~~~
+```
 1 -> un
 2 -> deux
 3 -> trois
-~~~
+```
 
 
 
-## Modification de dictionnaires 
+## Défi
+### Modification de dictionnaires 
 
 > 1. Commence par imprimer la valeur du `dico` à l'écran.
 > 2. Réaffecte la deuxième valeur pour qu'il ne lise plus "deux" mais "pomme".
@@ -398,15 +405,15 @@ La définition d’une section de code en tant que fonction dans Python est effe
 Par exemple, une fonction prenant deux arguments etleur somme
 peut être définie comme suit:
 
-~~~
+```python
 def add_function(a, b):
     result = a + b
     return result
 
 z = add_function(20, 22)
 print(z)
-~~~
+```
 
-~~~
+```
 42
-~~~
+```
