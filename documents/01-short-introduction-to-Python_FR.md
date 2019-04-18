@@ -29,7 +29,7 @@ Out[]: 4
 
 
 ```python
-In[]: print ("Hello World")
+In[]: print("Hello World")
 ```
 
 ```
