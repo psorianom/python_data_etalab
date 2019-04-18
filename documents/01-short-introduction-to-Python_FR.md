@@ -2,7 +2,7 @@
 ## Questions:
    - Qu'est-ce que Python?
    - Pourquoi devriez-vous apprendre le python?
-   
+
 ## Objectives:
    - Décrire les avantages de l’utilisation de la programmation par rapport à la réalisation manuelle de tâches répétitives.
    - Définir les types de données en Python: **chaînes** (strings), **nombres entiers** (integers) et **flottants** (floats).
@@ -21,21 +21,21 @@ Python est un langage interprété qui peut être utilisé de deux manières:
 ~~~
 2 + 2
 ~~~
-{: .language-python}
+
 
 ~~~
 4
 ~~~
-{: .output}
+
 
 ~~~
 print ("Hello World")
 ~~~
-{: .language-python}
+
 ~~~
 Hello World
 ~~~
-{: .output}
+
 
 
 * Mode "interpreteur": en lançant la commande `python` suivi par le nom d'un fichier qui contient un script. 
@@ -46,7 +46,7 @@ Nous utliserons le mode interactif dans cet atelier.
 
 ### Strings, integers et floats
 
-Une des choses la plus fondamentale que nous puissions faire en Python consiste à affecter des valeurs aux variables:
+Une des opérations la plus basique que nous puissions faire en Python consiste à affecter des valeurs aux variables:
 
 ~~~
 text = "Data Carpentry" # Un exemple de string
@@ -62,11 +62,11 @@ pouvons écrire le nom de la variable dans l'interpréteur et appuyer sur Màj+R
 ~~~
 text
 ~~~
-{: .language-python}
+
 ~~~
 "Charpenterie des données "
 ~~~
-{: .output}
+
 
 
 Tout dans Python a un type. Pour obtenir le type de quelque chose, nous pouvons passer cette chose
@@ -75,29 +75,29 @@ Tout dans Python a un type. Pour obtenir le type de quelque chose, nous pouvons 
 ~~~
 type (text)
 ~~~
-{: .language-python}
+
 ~~~
 <classe 'str'>
 ~~~
-{: .output}
+
 
 ~~~
 type (number)
 ~~~
-{: .language-python}
+
 ~~~
 <classe 'int'>
 ~~~
-{: .output}
+
 
 ~~~
 type (6.02)
 ~~~
-{: .language-python }
+
 ~~~
 <class 'float'>
 ~~~
-{: .output}
+
 
 
 La variable `text` est de type 'str', abréviation de **string** ou chaîne. Les chaînes stockent des séquences de caractères, qui peuvent être des lettres, des chiffres, des signes de ponctuation
@@ -108,19 +108,19 @@ Nous pouvons également voir la valeur de quelque chose en utilisant une autre f
 ~~~
 print(text)
 ~~~
-{: .language-python}
+
 ~~~
 Data Carpentry
 ~~~
-{: .output}
+
 ~~~
 print(11)
 ~~~
-{: .language-python}
+
 ~~~
 print(11)
 ~~~
-{: .output}
+
 
 
 **Astuce**: `print` et `type`  sont des fonctions intégrées dans Python. Plus loin dans cette
@@ -135,37 +135,37 @@ Nous pouvons effectuer des calculs mathématiques en Python en utilisant les op�
 ~~~
 2 + 2 # Sum
 ~~~
-{: .language-python}
+
 
 ~~~
 4
 ~~~
-{: .output}
+
 
 ~~~
 6 * 7 # Multiplication
 ~~~
-{: .language-python}
+
 ~~~
 42
 ~~~
-{: .output}
+
 ~~~
 2 ** 16 # Puissance
 ~~~
-{: .language-python}
+
 ~~~
 65536
 ~~~
-{: .output}
+
 ~~~
 13 % 5 # Modulo
 ~~~
-{: .language-python}
+
 ~~~
 3
 ~~~
-{: .output}
+
 
 
 Nous pouvons également utiliser opérateurs de comparaison :
@@ -176,38 +176,38 @@ s'appelle _**boolean**_ et renvoie vrai ou faux (true ou false), comme indiqué 
 ~~~
 3 > 4
 ~~~
-{: .language-python}
+
 ~~~
 False
 ~~~
-{: .output}
+
 
 ~~~
 True and True
 ~~~
-{: .language-python}
+
 ~~~
 Vrai
 ~~~
-{: .output}
+
 
 ~~~
 True or False
 ~~~
-{: .language-python}
+
 ~~~
 True
 ~~~
-{: .output}
+
 
 ~~~
 True and False
 ~~~
-{: .language-python}
+
 ~~~
 False
 ~~~
-{: .output}
+
 
 ## Séquences: Listes et Tuples
 
@@ -220,11 +220,11 @@ False
 nombres = [1, 2, 3]
 nombres[0]
 ~~~
-{: .language-python}
+
 ~~~
 1
 ~~~
-{: .output}
+
 
 Vous pouvez utiliser une boucle `for` pour accéder aux éléments d'une liste ou à d'autres
 structures de données Python, l'un après l'autre:
@@ -234,14 +234,14 @@ for num in numbers:
     print(num)
 
 ~~~
-{: .language-python}
+
 
 ~~~
 1
 2
 3
 ~~~
-{: .output}
+
 
 **L'indentation** est très importante en Python. Note que la deuxième ligne dans l'exemple ci-dessus est indenté. C’est ainsi que Python crée un bloc de code. 
 
@@ -254,12 +254,12 @@ entre parenthèses. Voyons un exemple en utilisant `append`:
 nombres.append (4)
 print(nombres)
 ~~~
-{: .language-python}
+
 
 ~~~
 [1, 2, 3, 4]
 ~~~
-{: .output}
+
 
 Pour savoir quelles méthodes sont disponibles pour un
 objet, nous pouvons utiliser la commande `help` intégrée:
@@ -274,7 +274,7 @@ class list(object)
  |  list(iterable) -> new list initialized from iterable's items
  ...
 ~~~
-iterable{: .output}
+iterable
 
 ### Tuples
 
@@ -290,14 +290,14 @@ autre_tuple = ('blue', 'green', 'red') '
 # Remarque: les listes utilisent des crochets
 une_list = [1, 2, 3]
 ~~~
-{: .language-python}
+
 
 > ## Tuples _vs._ Lists
 > 1. Que se passe-t-il lorsque tu exécutes `une_list[1] = 5` ?
 > 2. Que se passe-t-il lorsque tu exécutes `une_tuple[2] = 5`?
 > 3. Que dit `type(une_tuple)` à propos de `une_tuple`?
 >
-{: .challenge}
+
 
 
 ## Dictionnaires
@@ -308,11 +308,11 @@ Un dictionnaire **dictionary** est un conteneur qui stocke des paires d'objets -
 translation = {'one':1, 'two':2}
 translation['one']
 ~~~
-{: .language-python}
+
 ~~~
 1
 ~~~
-{: .output} 
+ 
 
 Les dictionnaires fonctionnent comme les listes, sauf que l'index est créé en utilisant *clès* **keys**.
 Tu peux considérer une clé comme un nom ou un identifiant unique pour un ensemble de valeurs
@@ -322,22 +322,22 @@ du dictionnaire. Les clés ne peuvent avoir que des types particuliers, elles do
 rev = {1: 'un', 2: 'deux'}
 rev[1]
 ~~~
-{: .language-python}
+
 ~~~
 'un'
 ~~~
-{: .output}
+
 
 ~~~
 mauvais = {[1, 2, 3]: 3}
 ~~~
-{: .language-python}
+
 ~~~
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unhashable type: 'list'
 ~~~
-{: .output}
+
 
 En Python, un "**Traceback**" est un bloc d'erreur multiligne imprimé pour l'utilisateur.
 
@@ -348,11 +348,11 @@ rev = {1: 'un', 2: 'deux'}
 rev[3] = 'trois'
 rev
 ~~~
-{: .language- python}
+
 ~~~
 {1: 'un', 2: 'deux', 3: 'trois'}
 ~~~
-{: .output}
+
 
 Utiliser des boucles `for` avec des dictionnaires est un peu plus compliqué. Nous pouvons le faire
 de deux manières:
@@ -360,14 +360,14 @@ de deux manières:
 for key, value in rev.items():
     print(key, '->', value)
 ~~~
-{: .language-python}
+
 
 ~~~
 1 -> un
 2 -> deux
 3 -> trois
 ~~~
-{: .output}
+
 
 ou
 
@@ -375,13 +375,13 @@ ou
 for key in rev.keys():
     print(key, '->', rev[key])
 ~~~
-{: .language- python}
+
 ~~~
 1 -> un
 2 -> deux
 3 -> trois
 ~~~
-{: .output}
+
 
 
 ## Modification de dictionnaires 
@@ -390,7 +390,7 @@ for key in rev.keys():
 > 2. Réaffecte la deuxième valeur pour qu'il ne lise plus "deux" mais "pomme".
 > 3. Imprimez à nouveau la valeur de `rev`  et regarde si la valeur a changé.
 >
-{: .challenge}
+
 
 
 ## Fonctions
@@ -406,11 +406,11 @@ def add_function(a, b):
 z = add_function(20, 22)
 print(z)
 ~~~
-{: .language-python}
+
 ~~~
 42
 ~~~
-{: .output}
+
 
 {% include links.md%}
 
