@@ -75,7 +75,7 @@ Tout dans Python a un type. Pour obtenir le type de quelque chose, nous pouvons 
 à la fonction `type`:
 
 ```python
-In[]:  type(text)
+In[]:  print(type(text))
 ```
 
 ```python
@@ -84,16 +84,16 @@ Out[]:  <classe 'str'>
 
 
 ```python
-In[]:  type(number)
+In[]:  print(type(number))
 ```
 
 ```python
-Out[]:  <classe 'int'>
+Out[]:  print(<classe 'int'>)
 ```
 
 
 ```python
-In[]:  type(6.02)
+In[]:  print(type(6.02))
 ```
 
 ```python
@@ -210,6 +210,15 @@ Out[]:  False
 ```
 
 
+## Défi
+### Modification de dictionnaires 
+
+> 1. Affecter `5` à la variable `a`
+> 2. Affecter `a x 2` à la variable `deux_a`
+> 3. Changer la valeur de `a` à 3. Quelle est la valeur de `deux_a`, `6` ou `10` ?
+
+
+
 ## Séquences: Listes et Tuples
 
 ### Listes
@@ -273,14 +282,14 @@ Help on list object:
 
 class list(object)
  |  list() -> new empty list
- |  list(iterable) -> new list initialized from iterable's items
+ |  list(iterable) -> new list initialized from iterables items
  ...
 ```
 
 ### Tuples
 
-Un **tuple** est similaire à une liste dans le sens qoù il s'agit d'une séquence ordonnée d'éléments.
-Cependant, les n-uplets ne peuvent plus être changés une fois créés (ils sont "immuables"). Les tuples
+Un **tuple** est similaire à une liste dans le sens où il s'agit d'une séquence ordonnée d'éléments.
+Cependant, les n-uplets ne peuvent plus être changés une fois créés (ils sont "immutables"). Les tuples
 sont créés en plaçant les valeurs séparées par des virgules entre parenthèses `()`.
 
 ```python
@@ -296,7 +305,7 @@ In[]:   une_list = [1, 2, 3]
 ## Défi
 
 > ## Tuples _vs._ Lists
-> 1. Que se passe-t-il lorsque tu exécutes `une_list[] = 5` ?
+> 1. Que se passe-t-il lorsque tu exécutes `une_list[1] = 5` ?
 > 2. Que se passe-t-il lorsque tu exécutes `une_tuple[2] = 5`?
 > 3. Que dit `type(une_tuple)` à propos de `une_tuple`?
 
@@ -349,44 +358,47 @@ En Python, un "**Traceback**" est un bloc d'erreur multiligne imprimé pour l'ut
 Pour ajouter un élément au dictionnaire, nous affectons une valeur à une nouvelle clé:
 
 ```python
-In[]:   dico = {1: 'un', 2: 'deux'}
-        dico[3] = 'trois'
-        dico
+In[]:   fragnol = {"bouteille":"botella", "velo":"bicicleta", "souhaite":"deseo"}
+        fragnol["velo"] = 'bicicleta'
+        fragnol
 ```
 
 ```python
-Out[]:  {1: 'un', 2: 'deux', 3: 'trois'}
+Out[]:  {'bouteille': 'botella', 'velo': 'bicicleta', 'souhaite': 'deseo'}
 ```
 
 
 Utiliser des boucles `for` avec des dictionnaires est un peu plus compliqué. Nous pouvons le faire
 de deux manières:
 ```python
-In[]:  for key, value in dico.items():
+In[]:  for key, value in fragnol.items():
             print(key, '->', value)
 ```
 
 
 ```
 Out[]:  
-        1 -> un
-        2 -> deux
-        3 -> trois
+      bouteille --> botella
+      velo --> bicicleta
+      souhaite --> deseo
+      ordinateur --> computadora
+
 ```
 
 
 ou
 
 ```python
-In[]:    for key in dico.keys():
+In[]:    for key in fragnol.keys():
              print(key, '->', dico[key])
 ```
 
 ```
 Out[]:  
-        1 -> un
-        2 -> deux
-        3 -> trois
+      bouteille --> botella
+      velo --> bicicleta
+      souhaite --> deseo
+      ordinateur --> computadora
 ```
 
 
@@ -394,9 +406,9 @@ Out[]:
 ## Défi
 ### Modification de dictionnaires 
 
-> 1. Commence par imprimer la valeur du `dico` à l'écran.
-> 2. Réaffecte la deuxième valeur pour qu'il ne lise plus "deux" mais "pomme".
-> 3. Imprimez à nouveau la valeur de `dico`  et regarde si la valeur a changé.
+> 1. Commencer par imprimer la valeur du `fragnol` à l'écran.
+> 2. Réaffecter la deuxième valeur pour qu'il ne lise plus "bicicleta" mais "bici".
+> 3. Imprimer à nouveau la valeur de `fragnol`  et regarde si la valeur a changé.
 >
 
 

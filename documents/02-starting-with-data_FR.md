@@ -32,51 +32,33 @@ analyse.
 
 ### Commencer au même endroit
 
-Pour que la leçon sorte le mieux possible, assurons-nous que nous tous sommes dans le même répertoire. Cela devrait nous aider à éviter les inconvénients liés aux noms et chemins de répertoires et de fichiers. Pour commencer, accéde au répertoire `workshop`.
+Pour que la leçon sorte le mieux possible, assurons-nous que nous tous sommes dans le même répertoire. Cela devrait nous aider à éviter les inconvénients liés aux noms et chemins de répertoires et de fichiers. 
 
 
 ### Nos données
 
-Pour cette leçon, nous allons utiliser les données de "Portal Teaching", qui est un-
-sousensemble des données étudiées par Ernst et al.
-[Surveillance à long terme et manipulation expérimentale d'un écosystème du désert de Chihuahuan près de Portal, Arizona, États-Unis] (http://www.esapubs.org/archive/ecol/E090/118/default.htm).
+Pour cette leçon, nous allons utiliser des données du Ministère de l'économie et des finances, notament sur l'[Impôt de solidarité sur la fortune](https://www.data.gouv.fr/en/datasets/impot-de-solidarite-sur-la-fortune/).  
 
-Nous utiliserons les données de [Base de données d’enseignement du projet de portail] (https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
-Cette section utilise la `surveys.csv` qui peut être téléchargépartir:
-[https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
+Pour chaque commune de plus de 20 000 habitants ayant plus de 50 redevables à l'Impôt de solidarité sur la fortune (ISF), vous pouvez connaître le nombre de redevables, le patrimoine moyen et la cotisation moyenne.
 
-Soitétude de les espèces et le poids des animaux capturés sur les sites de notre zone d'
-étude. L'ensemble de données est stocké dans un fichier `.csv`: chaque ligne
-contient des informations sur un seul animal et les colonnes représentent:
+Vous allez trouver ce dataset sur le repertoire `data/` avec le nom `isfcom2017.csv`
 
-| Colonne | Description |
-| ----------------- | ------------------------------- -------- |
-| record_id | identifiant unique de l'observation |
-| mois | mois d'observation |
-| jour | Jour d'observation |
-| année | année d'observation |
-| plot_id | ID d'un site particulier |
-| espèce_id | code à deux lettres |
-| sexe | sexe de l'animal ("M", "F") |
-| longueur pied arrière | taille de la jambe en mm |
-| poids | poids de l'animal en grammes |
 
 
 Les premières lignes de notre dossier sont les suivantes:
 
-~~~
-record_id, mois, jour, année, plot_id, species_id,sexe, hindfoot_length,poids,
-1,7,16,1977,2  NL, F, 32,
-2 , 7.16.1977.3, NL, M, 33,,
-3.716.1977.2, DM, F, 37,
-4.7, 16.1977.7, DM, M, 36,
-5.7 16,1977,3, DM, M, 35,
-6,7,16,1977,1, PF, M, 14,
-7,7,16,1977,2, PE, F,
-8,7,16, 1977,1, DM, M, 37,
-9,7,16,1977,1, DM, F, 34,
-~~~
-{: .output}
+```
+Region  Departements  Code_commune_INSEE_ Commune nom_redevables  patrimoine_moyen_euros  impot_moyen_euros
+AUVERGNE-RHONE-ALPES  AIN 1053  BOURG-EN-BRESSE 157 2261155 8297
+AUVERGNE-RHONE-ALPES  AIN 1283  OYONNAX 88  3236170 12078
+AUVERGNE-RHONE-ALPES  ALLIER  3185  MONTLUCON 111 2591793 9721
+AUVERGNE-RHONE-ALPES  ALLIER  3190  MOULINS 59  2524509 10026
+AUVERGNE-RHONE-ALPES  ALLIER  3310  VICHY 177 2369664 7316
+AUVERGNE-RHONE-ALPES  CANTAL  15014 AURILLAC  118 2606677 9251
+AUVERGNE-RHONE-ALPES  DROME 26198 MONTELIMAR  170 2694564 10374
+
+```
+
 
 ---
 
@@ -89,10 +71,10 @@ installée, elle peut être utilisée et appelée pour effectuer de nombreuses t
 
 ## Pandas en Python
 Une des meilleures options pour travailler avec des données tabulaires en Python consiste à utiliser
-[Python Data Analysis Library] (http://pandas.pydata.org/) (aka Pandas). La
+[Python Data Analysis Library](http://pandas.pydata.org/) (aka Pandas). La
 bibliothèque Pandas fournit des structures de données, génèregraphiques de haute
-desqualité avec [matplotlib] (http://matplotlib.org/) et s’intègre parfaitement
-avec les autres bibliothèques utilisant ** ** tableaux ** de [NumPy] (http: //www.numpy.org/)
+desqualité avec [matplotlib](http://matplotlib.org/) et s’intègre parfaitement
+avec les autres bibliothèques utilisant les **tableaux** de [NumPy](http://www.numpy.org/)
 (qui est une autre bibliothèque Python).
 
 Python ne charge pas toutes les bibliothèques disponibles par défaut. Vous devez utiliser
@@ -100,26 +82,25 @@ l'instruction `dansimportation notre codeutiliser les fonctions debibliothèque.
 Pour importer une bibliothèque, la syntaxe `import libraryname` est utilisée. Si vous
 voulez également mettre un pseudo pour raccourcir les commandes, vous pouvez
 ajouter `asadnameAUsar`. Un exemple consiste à importer la bibliothèque pandas en
-utilisant son pseudonyme commun `pd` comme ci-dessous.
+utilisant son pseudonyme commun `pds` comme ci-dessous.
 
 
-~~~
-importer des pandas en tant que pd
-~~~
-{: .language-python}
+```python
+import pandas as pds
+```
+
 
 Chaque fois que nous appelons une fonction qui se trouve dans la bibliothèque, la syntaxeest utilisée
 `LibraryName.FunctionName '. Ajouter le nom de la bibliothèque
 avec un `.` avant le nom de la fonction indique à Python où trouver la fonction.
-Dans l'exemple précédent, nous avons importé les pandas sous le nom de `pd`. Cela signifie quepas
-nous n'auronsà écrire `pandas` chaque fois que nous appellerons une fonction Pandas et que nous leuniquement
+Dans l'exemple précédent, nous avons importé les pandas sous le nom de `pds`. Cela signifie quepas
+nous n'aurons à écrire `pandas` chaque fois que nous appellerons une fonction Pandas et que nous leuniquement
 feronsavec son pseudo.
 
-# Lecture des données auCSV à l'aide de pandas
+# Lecture des données au CSV à l'aide de pandas
 
 Nous commencerons par rechercher et lire les données du recensement au
-formatformat CSV. CSV signifie «valeurs
-séparées par des virgules», séparées par des virgules, et constitue un moyen courant de sauvegarder des données. D'autres
+formatformat CSV. CSV signifie «valeurs séparées par des virgules», séparées par des virgules, et constitue un moyen courant de sauvegarder des données. D'autres
 symboles peuvent être utilisés, vous pouvez trouver des valeurs séparées par des
 tabulations, des points-virgules ou des blancs. Il est facile de remplacer
 un séparateur par un autre pour utiliser votre application. La première ligne du
@@ -127,7 +108,7 @@ fichier contient généralement les en-têtes indiquant qu'il y en a dans
 chaque colonne. Les fichiers CSV (et autres séparateurs) facilitent le partage des données et peuvent
 être importés et exportés à partir de différents programmes, y compris Microsoft Excel.
 Pour plus de détails sur les fichiers CSV, voir la leçon [Organisation des données dans des tableurs] (http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data/).
-Nous pouvons utiliser la fonction `Pandasread_csv`pour ouvrir le fichier directement dans
+Nous pouvons utiliser la fonction `pandas.read_csv`pour ouvrir le fichier directement dans
 un[dataframe](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe).
 
 ## Alors, qu'est-ce qu'un DataFrame?
@@ -138,15 +119,14 @@ facteurs, etc.) dans des colonnes. Il est similaire à une feuille de calcul, un
 le `data.frame` de R. Un ** DataFrame ** a toujours un index (avec un début à 0). L'index
 fait référence à la position d'un élément dans la structure de données.
 
-~~~
-# Note pd.read_csv utilisé parce queimportation comme pandas géantspd
-pd.read_csv( "data / surveys.csv")
-{~~~:
-.langue-python}
+```python
+# Note pds.read_csv utilisé parce queimportation comme pandas géantspd
+pds.read_csv( "data/isfcom2017.csv")
+```
 
-La commande cidessus conduit à l'autre ** sortie**:
+La commande cidessus conduit à l'autre **sortie**:
 
-~~~
+```
 poids record_id année mois jour plot_id hindfoot_length sexe
 0 116 Juillet 1977 M 32 NaN 2 NL
 1 Février 16 Juillet 1977 33 M NaN3 NL
@@ -161,8 +141,8 @@ NaN37 Avril, 16 DM 1977 7 M 36 NaN
 35 548 3554931 décembre 2002 5 NaN NaN NaN NaN
 
 [35549 lignes x 9 colonnes]
-~~~
-{:}.output
+```
+.output
 
 nous pouvons voir que35,549 lignes ont été lues. Chacune des lignes a
 9 colonnes. La première colonne est l'index DataFrame. L'index est utilisé
@@ -175,19 +155,19 @@ nouvel objet avec le nom de la variable et lui attribuer une valeur en utilisant
 
 Appeldonnées de recensement importées `surveys_df`:
 
-~~~
-surveys_df = pd.read_csv ( "données / surveys.csv")
-{~~~:
+```
+surveys_df = pds.read_csv ( "données / isfcom2017.csv")
+{```:
 .langue-python}
 
 Notez que lorsattributionune données importées dataframe ** * * Pour une variable,
 Python ne produit aucune sortie d'écran. Nous pouvons voir le contenu de `survey_df` en
 tapant le nom dans la ligne de commande de Python.t.
 
-~~~
+```
 Surveys_df
-~~~
-{: .language-python}
+```
+
 
 qui affiche le contenu comme auparavant.
 
@@ -195,7 +175,7 @@ Remarque: si la sortie est plus large que l'écran du terminal lors de l'impress
 différent au fur et à mesure que le jeu de données volumineux passe. Vous pouvez simplement voir la
 dernière colonne des données:
 
-~~~
+```
 NaN 17
 18NaN
 NaN19
@@ -242,20 +222,20 @@ NaN
 35548 NaN
 
 [35549 lignes x 9 colonnes]
-~~~
-{: .output}
+```
+
 
 N'ayez crainte, toutes les données sont là, si vous naviguez au-dessus de votre terminal.
 ne sélectionnons que quelquesunes des lignes, ce qui rendra plus facile à tenir surde
 une bornesortie,on peut voir que Panda formater les données afin que
 affiché à l'écran:
 
-~~~
+```
 surveys_df.head () # La méthode tête () affiche les premières lignes d'un fichier. Il
                  est discuté ci-dessous.
-~~~
-{:}.langue-python
-~~~
+```
+.langue-python
+```
   plot_id mois jour année record_id species_id sexe hindfoot_length \
 5 6 7 16 1977 1 M 14,0 PF
 Juillet 6 16 Juillet, 1977 2 PE F NaN
@@ -269,21 +249,21 @@ Juillet 6 16 Juillet, 1977 2 PE F NaN
 NaN7
 8NaN
 9 NaN
-~~~
-{:}.output
+```
+.output
 
 ##Explorationdonnées de recensementespèces
 
 nouveaunous utilisons la `type` voir que quelque chose is`surveys_df`:est:
 
-~~~
+```
 Type (surveys_df)
 
-{~~~:.langue-python}
-~~~
+
+```
 <class 'pandas.core.frame.DataFrame'>
 ~~ ~
-{: .output}
+
 
 Comme prévu, il s'agit d'un ** DataFrame ** (ou, en utilisant le nom complet pour
 lequel Python utilise en interne, un  `pandas.core.frame.DataFrame`).
@@ -291,11 +271,11 @@ lequel Python utilise en interne, un  `pandas.core.frame.DataFrame`).
 Quel genre de choses `survey_df` contient? La tramedonnées ** ** ont un attribut
 appelé `dtypes` qui répondcette question:
 
-~~~
+```
 surveys_df.dtypes
-~~~
-{:}.langue-python
-~~~
+```
+.langue-python
+```
 RECORD_ID int64
 int64 mois
 jour int64
@@ -306,8 +286,8 @@ sexuelobject
 hindfoot_length float64
 weight float64
 dtype: object
-~~~
-{: .output}
+```
+
 
 Toutes les valeurs d'une colonne ont le même type. Par exemple, les mois ont
 le type `int64`, qui est un type de nombre entier.cellules de la colonne mois
@@ -347,7 +327,7 @@ DataFrames >> Utilisationnotre dataframe ** ** `survey_df`, exécutez les attrib
 >>    Astuce:[Plusacercad et tuples,ici](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
 > 3 `Surveys_df.head ()` Exécute également `survey_df.head (15)` qu'est-ce que cela fait?
 > 4 `survey_df.tail ()`
-{: .challenge}
+
 
 
 ## Calcul des statistiques des données dans un ** DataFrame ** de Pandas
@@ -360,39 +340,39 @@ Mais nous devons d’abord savoir comment nous voulons nous disputer.
 
 Empezemos d'explorerdonnées:
 
-~~~
+```
 # Regardons les colonnes
 de surveys_df.columns
-~~~
-{:} .langue-python
+```
+ .langue-python
 
 qui  retourne ****:
 
-~~~
+```
 Index ([ 'record_id', 'mois' , 'jour', 'année', 'plot_id', 'species_id', 'sexe',
       'hindfoot_length', 'poids'],
      'objet' DTYPE =)
-~~~
-{:} .output
+```
+ .output
 
-Obtenir une liste de tous espèces. La fonction `pd.unique`indique nous
+Obtenir une liste de tous espèces. La fonction `pds.unique`indique nous
 les différentes valeurs présentes dans lacolonne` espèce_id`.
 
-~~~
-pd.unique (survey_df ['espèces_id'])
-~~~
-{: .language-python}
+```
+pds.unique (survey_df ['espèces_id'])
+```
+
 
 ce que ** retourne **:
 
-~~~
+```
 array (['NL', 'DM', 'PF', «PE», «DS», «PP», «SH», «OT», «DO», «OX», «SS»,
       «OL», «RM», nan, «SA», «PM», "AH", "DX", "AB", "CB", "CM", "CQ",
       "RF", "PC", "PG", "PH", "PU", "CV", "UR" ',' UP ',' ZL ',' UL ',' CS ',
       ' SC ',' BA ',' SF ',' RO ',' AS ',' SO ',' PI ',' ST ',' 'CU', 'HIS', 'RX',
       'PB', 'PL', 'PX', 'CT', 'US'], DTYPE = objet)
-~~~
-{:}
+```
+
 
 .langue-python> ## reto -
 
@@ -401,7 +381,7 @@ Statistiques >> 1. Créez une liste des identifiants de site ("plot_id") figuran
 Combien>   espèces il y a dans les données?
 
 >> 2. Quelle est la différence entre `len (site_names)` et`survey_df ['plot_id']. Nunique ()`?
-{: .challenge}
+
 
 # Groupes dans les pandas
 
@@ -412,10 +392,10 @@ poids moyen de nos individus par site.
 Nous pouvons calculer des statistiques de base de toutes les données d’une colonne
 à l’aide de la commande suivante:
 
-~~~
+```
 Surveys_df ['weight']. Describe ()texte
-~~~
-{: .language-python}
+```
+
 renvoie lesuivant ** exit **
 
 ~ ~~
@@ -428,46 +408,46 @@ std 36,631259
 48,000000 75%
 max 280,000000
 Nom: poids, DTYPE: float64
-~~~
-{:} .langue-python
+```
+ .langue-python
 
 peut également extraire une métrique particulière ::
 
-~~~
+```
 surveys_df [ 'poids']. min ()
 surveys_df [ 'poids'].max ()
 de surveys_df [ 'poids']. moyenne ()
 de surveys_df [ 'poids']. std ()
 Nombrede surveys_df [ 'poids'] ()
-~~~
-{: .language-python}
+```
+
 
 Mais si nous voulons extraire des informations à l'aide d'une ou plusieurs variables, par exemple le sexe,
 nous pouvons utiliser la méthode `.groupby` de Pandas **. Une fois que nous avons créé
 un groupe ** DataFrame ** , nous pouvons calculer des statistiques en fonction du groupe de notre choix.
 
-~~~
+```
 # Pooled parsexe
 grouped_data = surveys_df.groupby ( 'sexe')
-~~~
-{: .langue-python}
+```
+
 
 La fonction** `describe` ** Panda renvoiestatistiques descriptivesy compris:
 moyenne, meadiana, max, min, std et compte pour une colonne particulière des
 données. La fonctionne `describe` renvoie que les valeurs de ces statistiques pour les
 colonnes numériques.
 
-~~~
+```
 # Statistiques pour toussexe colonnes numériques
 grouped_data.describe()
 # Renvoie la moyenne de chaque colonne numérique sexe
 grouped_data.mean ()
-{~~~:}
+
 
 
 `.langue-pythongrouped_data.mean () ' ** SORTIE: **
 
-~~~
+```
        plot_id \record_id année mois jour
 sexe
 18036.412046 6.583047 16.007138F 1990.644997 11.440854
@@ -478,8 +458,8 @@ sexe
 28.836780F42.170555
 29.709578 42.995379M
 
-~~~
-{:}.langue-python
+```
+.langue-python
 
 commande ` groupby` est très puissant et ne permet pas la génération rapide de
 statistiques descriptives.
@@ -500,7 +480,7 @@ Description>> 1. Combien de personnes sontfemmes f` et combien sont ``m`?hommes
 >> ##que vous avezbon défi # 3T?
 >> ** Une sortie pedaxo pour le défi 3 ressemble: **
 >>
->> ~~~
+>> ```
 >>  site
 >>  1comte 1903,000000
 >>        51,822911 signifie
@@ -511,28 +491,28 @@ Description>> 1. Combien de personnes sontfemmes f` et combien sont ``m`?hommes
 >>        75% 53,000000
 >>        max 231,000000
 >>          ...
->> ~~~
+>> ```
 >> {:
-.Output}> {:}
-{.Solution:.challenge}
+.Output}> 
+
 
 Créationstatistiques ## comptages rapidement avec Pandas
 
 Maintenant, comptons le nombre d'échantillons de chaque espèce. Nous pouvons le faire
 de différentes manières, mais nous utiliserons `groupby`method` combiné à ** the count ()`**.
 
-~~~
+```
 # Comptez le nombre d'échantillons par espèces
 species_counts = surveys_df.groupby ( 'species_id') count () [ 'record_id']
 impression (species_counts)
-~~~.
-{:}.langue-python,
+```.
+.langue-python,
 
 O  peut aussi compter lignes ayant les espèces "DO":
 
-~~~
+```
 surveys_df.groupby( 'species_id') [ ''] rECORD_ID count () [ 'DO']
-~~~
+```
 {:
 
 .langue-python}.> ## Challenge - Making une
@@ -541,7 +521,7 @@ liste >> Quelle autre façonlà pour créer une liste d'espèces et associée `c
 de>  échantillons de données? Astuce: vous pouvez faire exécuter les fonctions
 >  `count`, ` min`, etc. dans un groupe ** DataFrame ** de la même manière que
 > cela  se fait dans un DataFrame
-{: .challenge}
+
 
 ## Fonctions mathématiques de base
 
@@ -550,22 +530,22 @@ données. Par exemple, multiplions toutes les valeurs de poids par 2. Une utilis
 plus utile pourrait être de normaliser les données avec la moyenne, la surface ou une autre valeur
 calculée de nos données.
 
-~~~
+```
 # Multipliant toutesvaleurs de poids pour 2
 surveys_df [ « poids »] * 2
-~~~
-{: .langue-python}
+```
+
 
 données # de Graphing rapidement et facilementPandas
 
 nospeuvent également graphiqueaide Pandas de statistiques descriptives.
 
-~~~
+```
 # Assurez-vous que les images apparaissent insérées dans iPython Notebook
 % matplotlib inline
 # Créez un graphique à barres
 espèces_counts.plot (kind = 'bar');
-~~~
+```
 {:
 
 .langue-python}!deespèces[sitespoids](../fig/countPerSpecies.png)
@@ -573,19 +553,19 @@ Chiffres espèces par site
 
 peut aussi voir combien d'animaux ont été capturés parsite:
 
-~~~
+```
 TOTAL_COUNT = surveys_df. groupby ('plot_id') ['record_id']. nunique ()
 # Nous avons également tracé ce
 total_count.plot (kind = 'bar');
-~~~
-{:}
+```
+
 
 .langue-python> ## Challenge -
 
 Graphique >> 1. Créez un graphique du poids moyen des espèces par site.
 > 2. Créez un graphique du total des hommes par rapport au total des femmes pour
 >    l'ensemble de données.
-{:}
+
 
 .Challenge> ## fin  Défi
 
@@ -601,30 +581,30 @@ petit>    exemple des données où « a », « b » et « c » sontgroupes, et �
 sont>    sousgroupes.
 
 >> 
-~~~> d = { 'un': pd.Series (, index = [ 'a', 'b', 'c'] [1, 2, 3.]), 'Deux': pd .Series ([1., 2., 3., 4.], index = ['a', 'b', 'c', 'd'])}
-> pd.DataFrame (d)
-> ~~~
-> {:}
+```> d = 
+> pds.DataFrame (d)
+> ```
+> 
 
 .langue-python >> montre les  suivantes
 
 données>> 
-~~~>       un
+```>       un
 deux>   1
 1>   B 2
 2>   c Mars
 3>   d NaN
 4> 
-~~~> {:}
+```> 
 
 .output >> nous pouvons  cettegraphique
 
 >> avec 
-~~~> # Graficar empiléstelle sorte quedonnées de l'une «des colonnes et 'deux' sont
-empilés> = my_df pd.DataFrame
+```> # Graficar empiléstelle sorte quedonnées de l'une «des colonnes et 'deux' sont
+empilés> = my_df pds.DataFrame
 (d)> my_df.plot (type = 'bar' empilés = True , title = "le titre de mon
 graphique")> 
-~~~> {:}
+```> 
 
 .langue-python >> [empilésàgraphiquebarres]
 
@@ -641,15 +621,15 @@ arrangement dépilé> crée alors un graphique empilé.
 >> données Premières agrupemos par site etsexe, puis calculer le total pour
 >>. chaque site
 >>
->> ~~~
+>> ```
 >> by_site_sex = surveys_df.groupby ([ 'plot_id', 'sexe'])
 >> site_sex_count = by_site_sex [ 'poids'] somme ()
->> {~~~.
+>> {```.
 >> .Langue -python}
 >>
 >> Ceci calcule la somme des poids pour chaque sexe par site sous forme de tableau
 >>
->> ~~~
+>> ```
 >> sexe de site
 >> plot_id sexe
 >> 1 F 38253
@@ -661,22 +641,22 @@ arrangement dépilé> crée alors un graphique empilé.
 >> 4 F 3979649377
 >>          M
 >> <le reste a été omis pour abréger>
->> ~~~
->> {: .output}
+>> ```
+>> 
 >>
 >> >> maintenantutilisera .unstack`()` dans les données misescommun pour comprendre comment le poids
 >> total pour chaque sexe contribue à chaque site.
 >>
->> ~~~
+>> ```
 >> by_site_sex = surveys_df.groupby ([ 'plot_id', 'sexe'])
 >> site_sex_count = by_site_sex [ 'poids']. Somme ()
 >> site_sex_count.unstack ()
 >> ~~ ~
->> {: .language-python}
+>> 
 >>
 >> La méthode `unstack` ci-dessus affiche le résultat suivant:
 >>
->> ~~~
+>> ```
 >> sex FM
 >> plot_id
 >> 1 38253 59979
@@ -684,8 +664,8 @@ arrangement dépilé> crée alors un graphique empilé.
 >> 3 27251 28253
 >> 4 39796 49377
 >> <les autres sites sont omis pour le briefing>
->> ~~~
->> {: .output}
+>> ```
+>> 
 >>
 >> Nous créons maintenant un graphique à barres empilées avec les données où le poids pour chaque
 >> sexe, il est empilé par site.
@@ -693,21 +673,21 @@ arrangement dépilé> crée alors un graphique empilé.
 >> Au lieu d'afficher commetable, nous pouvons tracer les données empilant des données
 >> de chaque sexe comme suit:
 >>
->> ~~~
+>> ```
 >> by_site_sex = surveys_df.groupby ([ « plot_id », « sexe » ])
 >> site_sex_count = by_site_sex [ 'poids']. sum ()
 >> = spc site_sex_count.unstack ()
 >> s_plot = spc.plot (type = 'bar' = True empilée, title = « poids total parsite etsexe ")
 >> s_plot.set_ylabel (" poids ")
 >> s_plot.set_xlabel (" Terrain « )
->> {~~~:
+>> {```:
 >> 
 >>
 >> .langue-python}[Figurebarres empilées](!../figstackedBar.png/)
-> {: .solution}
-{: .challenge}
+> 
 
-{% include links.md%}
+
+
 
 
 
