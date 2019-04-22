@@ -127,7 +127,13 @@ pds.read_csv( "data/isfcom2017.csv")
 La commande cidessus conduit à l'autre **sortie**:
 
 ```
-poids record_id année mois jour plot_id hindfoot_length sexe
+  Region  Departements  Code_commune_INSEE_   Commune   nom_redevables  patrimoine_moyen_euros  impot_moyen_euros
+0   AUVERGNE-RHONE-ALPES  AIN   1053  BOURG-EN-BRESSE   157   2261155   8297
+1   AUVERGNE-RHONE-ALPES  AIN   1283  OYONNAX   88  3236170   12078
+2   AUVERGNE-RHONE-ALPES  ALLIER  3185  MONTLUCON   111   2591793   9721
+3   AUVERGNE-RHONE-ALPES  ALLIER  3190  MOULINS   59  2524509   10026
+4   AUVERGNE-RHONE-ALPES  ALLIER  3310  VICHY   177   2369664   7316
+5   AUVERGNE-RHONE-ALPES  CANTAL  15014   AURILLAC  118   2606677   9251poids record_id année mois jour plot_id hindfoot_length sexe
 0 116 Juillet 1977 M 32 NaN 2 NL
 1 Février 16 Juillet 1977 33 M NaN3 NL
 2 3 16 Juillet 1977 2 37 DM F
@@ -140,555 +146,309 @@ NaN37 Avril, 16 DM 1977 7 M 36 NaN
 35 54735548 31 décembre 2002 7 51M dO 36
 35 548 3554931 décembre 2002 5 NaN NaN NaN NaN
 
-[35549 lignes x 9 colonnes]
+388 rows × 7 columns
 ```
-.output
 
-nous pouvons voir que35,549 lignes ont été lues. Chacune des lignes a
-9 colonnes. La première colonne est l'index DataFrame. L'index est utilisé
+
+Nous pouvons voir que 388 lignes ont été lues. Chacune des lignes a
+7 colonnes. La première colonne est l'index DataFrame. L'index est utilisé
 pour identifier la position des données, mais ce n'est pas une colonne du DataFrame.
 Il semble que la fonction `read_csv`de Pandas lise correctement le fichier.
-Cependant, nous n’avons enregistré aucune donnée en mémoire, nous ne pouvons donc pas les utiliser
-. Nous devons affecter ** DataFrame ** à une variable. Rappelezvous
-qu'unevariable est un nom pour une valeuras` ou `x`data`.Nous pouvons créer un
+Cependant, nous n’avons enregistré aucune donnée en mémoire, nous ne pouvons donc pas les utiliser. 
+Nous devons affecter le **DataFrame** à une variable. Rappelez vous
+qu'unevariable est un nom pour une valeur. Nous pouvons créer un
 nouvel objet avec le nom de la variable et lui attribuer une valeur en utilisant `=`.
 
-Appeldonnées de recensement importées `surveys_df`:
+Appeldonnées de recensement importées `isf_df`:
 
+```python
+isf_df = pds.read_csv ( "data/isfcom2017.csv")
 ```
-surveys_df = pds.read_csv ( "données / isfcom2017.csv")
-{```:
-.langue-python}
 
-Notez que lorsattributionune données importées dataframe ** * * Pour une variable,
-Python ne produit aucune sortie d'écran. Nous pouvons voir le contenu de `survey_df` en
-tapant le nom dans la ligne de commande de Python.t.
+Nous pouvons voir le contenu de `isf_df` en tapant le nom dans la ligne de commande.
 
-```
-Surveys_df
+```python
+isf_df
 ```
 
 
-qui affiche le contenu comme auparavant.
+Ce qui affiche le contenu comme auparavant.
 
 Remarque: si la sortie est plus large que l'écran du terminal lors de l'impression, le résultat sera
 différent au fur et à mesure que le jeu de données volumineux passe. Vous pouvez simplement voir la
-dernière colonne des données:
+dernière colonne des données. N'ayez crainte, toutes les données sont là, si vous naviguez au-dessus de votre terminal.
+Ci-dessour, nous sélectionnons que quelquesunes des lignes, ce qui rendra plus facile à tenir sur
+une cellule de sortie, on peut voir que Pandas format les données afin qu'ils rentrent dans l'écran:
 
-```
-NaN 17
-18NaN
-NaN19
-20 NaN
-21NaN
-NaN22
-23 NaN
-24NaN
-25 NaN
-NaN 26
-27NaN
-28 NaN
-NaN29
-... ...
-3551936,0
-3552048,0
-
-
-
-35521 45,0 35522 44,0 35523 27,0 35524 26,0
-
-
-NaN
-35528 25,0
-35529 NaN
-35530 NaN
-
-
-
-35531 43,0 35532 48,0 35533 56,0 35534 53,0
-
-
-
-
-
-
-
-
-NaN
-35544 NaN
-35545 NaN
-35546 14.0
-35547 51.0
-35548 NaN
-
-[35549 lignes x 9 colonnes]
+```python
+isf_df.head () # La méthode head() affiche les premières lignes d'un fichier. Il
+               # est discuté ci-dessous.
 ```
 
-
-N'ayez crainte, toutes les données sont là, si vous naviguez au-dessus de votre terminal.
-ne sélectionnons que quelquesunes des lignes, ce qui rendra plus facile à tenir surde
-une bornesortie,on peut voir que Panda formater les données afin que
-affiché à l'écran:
-
 ```
-surveys_df.head () # La méthode tête () affiche les premières lignes d'un fichier. Il
-                 est discuté ci-dessous.
+  Region  Departements  Code_commune_INSEE_   Commune   nom_redevables  patrimoine_moyen_euros  impot_moyen_euros
+0   AUVERGNE-RHONE-ALPES  AIN   1053  BOURG-EN-BRESSE   157   2261155   8297
+1   AUVERGNE-RHONE-ALPES  AIN   1283  OYONNAX   88  3236170   12078
+2   AUVERGNE-RHONE-ALPES  ALLIER  3185  MONTLUCON   111   2591793   9721
+3   AUVERGNE-RHONE-ALPES  ALLIER  3190  MOULINS   59  2524509   10026
+4   AUVERGNE-RHONE-ALPES  ALLIER  3310  VICHY   177   2369664   7316
 ```
-.langue-python
+
+## Exploration de données 
+
+Nous utilisons la `type` voir ce qu'est `isf_df`:
+
+```python
+print(type(isf_df))
 ```
-  plot_id mois jour année record_id species_id sexe hindfoot_length \
-5 6 7 16 1977 1 M 14,0 PF
-Juillet 6 16 Juillet, 1977 2 PE F NaN
-8 Juillet 16 Juillet 1977 1 DM 37,0 M
-8 9 16 Juillet 1977 1 DM F
-34,0 9 10 7 16 1977 6F 20,0PF
-
-  poids
-5 NaN
-6NaN
-NaN7
-8NaN
-9 NaN
-```
-.output
-
-##Explorationdonnées de recensementespèces
-
-nouveaunous utilisons la `type` voir que quelque chose is`surveys_df`:est:
-
-```
-Type (surveys_df)
-
-
-```
+```python
 <class 'pandas.core.frame.DataFrame'>
-~~ ~
+```
 
-
-Comme prévu, il s'agit d'un ** DataFrame ** (ou, en utilisant le nom complet pour
+Comme prévu, il s'agit d'un **DataFrame** (ou, en utilisant le nom complet pour
 lequel Python utilise en interne, un  `pandas.core.frame.DataFrame`).
 
-Quel genre de choses `survey_df` contient? La tramedonnées ** ** ont un attribut
-appelé `dtypes` qui répondcette question:
+Quel genre de colonnes `isf_df` contient ? Les dataframes ont un attribut
+appelé `dtypes` qui répond à cette question:
+
+```python
+isf_df.dtypes
+```
 
 ```
-surveys_df.dtypes
-```
-.langue-python
-```
-RECORD_ID int64
-int64 mois
-jour int64
-int64 année
-plot_id int64
-objetspecies_id
-sexuelobject
-hindfoot_length float64
-weight float64
+Region                    object
+Departements              object
+Code_commune_INSEE_       object
+Commune                   object
+nom_redevables             int64
+patrimoine_moyen_euros     int64
+impot_moyen_euros          int64
 dtype: object
 ```
 
 
-Toutes les valeurs d'une colonne ont le même type. Par exemple, les mois ont
-le type `int64`, qui est un type de nombre entier.cellules de la colonne mois
-ne peuvent pas avoir des fractions, mais colonnes weight` et
-``hindfoot_length` peuvent, car ils sont tupo `float64`.Le type `object` n'a pas
-un nom très utile, mais dans ce cas, il représente un mot (comme 'M' et 'F' dans
-le cas du sexe).
+Toutes les valeurs d'une colonne ont le même type. Par exemple, les `nom_redevables` ont
+le type `int64`, qui est un type de nombre entier. Le type `object` n'a pas
+un nom très utile, mais dans ce cas, il représente un string (comme "Oyonnax" dans le nom de la commune).
 
 Dans une autre leçon, nous discuterons de la signification de différents types.
 
-### Façons utiles de voir les objets ** DataFrame ** en Python
+### Façons utiles de voir les objets **DataFrame** en Python
 
 Il existe différentes façons de résumer et d'accéder aux données stockées dans un DataFrame, en
 utilisant les attributs et les méthodes fournis par l'objet DataFrame.
 
-Pour accéder à un attribut, utilisez le nom de l'objet ** DataFrame ** suivi
-du nom de l'attribut `df_object.attribute`. Utiliser le ** DataFrame ** `Surveils_df`
-et l'attribut` colonnes`, un index de tous les noms des colonnes
-du ** DataFrame ** sont accessibles avec` survey_df.columns`.
+Pour accéder à un attribut, utilisez le nom de l'objet **DataFrame** suivi
+du nom de l'attribut `df_object.attribute`. Utiliser le **DataFrame** `isf_df`
+et l'attribut `columns`, pour retrouver un index de tous les noms des colonnes
+du **DataFrame** (avec` isf_df.columns`).
 
 Les méthodes sont appelées de la même manière en utilisant la syntaxe `df_object.method ()`.
-Par exemple, `Surveils_df.head ()` obtient les premières lignes de la méthode ** DataFrame **
-`Surveys_df` en utilisant ** la méthode` la tête () `**. Avec une méthode, nous pouvons fournir
+Par exemple, `Surveils_df.head ()` obtient les premières lignes de la méthode **DataFrame**
+`isf_df` en utilisant la méthode `head()`. Avec une méthode, nous pouvons fournir
 des informations supplémentaires aux parents pour contrer leur comportement.
+
 
 Regardons les données en utilisant ceci.
 
-> ## - Reto
+##  Dèfi
 
-DataFrames >> Utilisationnotre dataframe ** ** `survey_df`, exécutez les attributs et méthodes suivants
-> et observez-les.
+En utilisant notre dataframe `isf_df`, exécutez les attributs et méthodes suivants
+et observez-les.
 
->> 1 `survey_df.columns`
-> 2 `survey_df.shape` Prenez note du résultatde` shape` - Quel format a le résultat
+> 1. `isf_df.columns`
+> 2. `isf_df.shape` Prenez note du résultatde `shape` - Quel format a le résultat
 >    de l'attribut qui renvoie la forme d'un DataFrame?
-
->>    Astuce:[Plusacercad et tuples,ici](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
-> 3 `Surveys_df.head ()` Exécute également `survey_df.head (15)` qu'est-ce que cela fait?
-> 4 `survey_df.tail ()`
+> 3. `isf_df.head()` Exécute également `isf_df.head(15)` qu'est-ce que cela fait?
+> 4. `isf_df.tail()`
 
 
 
-## Calcul des statistiques des données dans un ** DataFrame ** de Pandas
+## Calcul des statistiques des données dans un **DataFrame** de Pandas
 
 Nous avons lu les données en Python. Calculons maintenant quelques statistiques pour
-comprendre un peu des données avec lesquelles nous travaillons. Nous voudrons peut-être
-savoir combien d'animaux ont été collectés sur chaque site ou combien d'espèces
-ont été capturées. Nous pouvons calculer ces statistiques rapidement en utilisant des groupes.
-Mais nous devons d’abord savoir comment nous voulons nous disputer.
+comprendre un peu les données avec lesquelles nous travaillons. Nous voudrons peut-être
+savoir combien des redevables existent dans chaque commune ou combien d'espèces
+ont été capturées. 
 
-Empezemos d'explorerdonnées:
+Commençons a explorer les données:
 
-```
+```python
 # Regardons les colonnes
-de surveys_df.columns
-```
- .langue-python
-
-qui  retourne ****:
-
-```
-Index ([ 'record_id', 'mois' , 'jour', 'année', 'plot_id', 'species_id', 'sexe',
-      'hindfoot_length', 'poids'],
-     'objet' DTYPE =)
-```
- .output
-
-Obtenir une liste de tous espèces. La fonction `pds.unique`indique nous
-les différentes valeurs présentes dans lacolonne` espèce_id`.
-
-```
-pds.unique (survey_df ['espèces_id'])
+de isf_df.columns
 ```
 
+qui retourne :
 
-ce que ** retourne **:
-
-```
-array (['NL', 'DM', 'PF', «PE», «DS», «PP», «SH», «OT», «DO», «OX», «SS»,
-      «OL», «RM», nan, «SA», «PM», "AH", "DX", "AB", "CB", "CM", "CQ",
-      "RF", "PC", "PG", "PH", "PU", "CV", "UR" ',' UP ',' ZL ',' UL ',' CS ',
-      ' SC ',' BA ',' SF ',' RO ',' AS ',' SO ',' PI ',' ST ',' 'CU', 'HIS', 'RX',
-      'PB', 'PL', 'PX', 'CT', 'US'], DTYPE = objet)
+```python
+Index(['Region', 'Departements', 'Code_commune_INSEE_', 'Commune',
+       'nom_redevables', 'patrimoine_moyen_euros', 'impot_moyen_euros'],
+      dtype='object')
 ```
 
+Obtenir une liste de toutes les régions. La fonction `pds.unique` nous indique 
+les valeurs distinctes présentes dans la colonne `Region`.
 
-.langue-python> ## reto -
+```python
+pds.unique(isf_df['Region'])
+```
 
-Statistiques >> 1. Créez une liste des identifiants de site ("plot_id") figurant dans les données du recensement.
->    Appelons cette liste `site_names`. Combien de sites sont les données?,
-Combien>   espèces il y a dans les données?
+ce qui **retourne**:
 
->> 2. Quelle est la différence entre `len (site_names)` et`survey_df ['plot_id']. Nunique ()`?
+```
+array(['AUVERGNE-RHONE-ALPES', 'BOURGOGNE-FRANCHE-COMTE', 'BRETAGNE',
+       'CENTRE-VAL DE LOIRE', 'CORSE', 'GRAND-EST', 'GUADELOUPE', 'GUYANE',
+       'LES-HAUTS-DE-FRANCE', 'ILE-DE-FRANCE', 'MARTINIQUE', 'NORMANDIE',
+       'NOUVELLE-AQUITAINE', 'OCCITANIE', 'PAYS DE LA LOIRE',
+       "PROVENCE-ALPES-COTE D'AZUR", 'LA REUNION'], dtype=object)
+```
+
+## Dèfi
+### Statistiques
+> 1. Créez une liste des codes commune INSEE ("Code_commune_INSEE_") figurant dans les données.
+>    Appelons cette liste `insee_codes`. Combien de codes ont les données?,
+
+> 2. Quelle est la différence entre `len(insee_codes)` et`isf_df['Code_commune_INSEE_'].nunique()`?
 
 
-# Groupes dans les pandas
+# Groupes dans les **Dataframes**
 
 Parfois, nous souhaitons calculer des statistiques de données regroupées par
 sous-ensembles ou attributs de nos données. Par exemple, si nous voulons calculer le
-poids moyen de nos individus par site.
+patrimoine moyen de nos redevables par departement.
 
 Nous pouvons calculer des statistiques de base de toutes les données d’une colonne
 à l’aide de la commande suivante:
 
-```
-Surveys_df ['weight']. Describe ()texte
+```python
+isf_df['patrimoine_moyen_euros'].describe()
 ```
 
-renvoie lesuivant ** exit **
+renvoie le résultat suivant:
 
-~ ~~
-compter32283,000000
-42,672428signifie
-std 36,631259
-4,000000min
-2537,000000%20,000000
-50%
-48,000000 75%
-max 280,000000
-Nom: poids, DTYPE: float64
 ```
- .langue-python
+count       388.00
+mean    2556011.69
+std      434621.56
+min     1936554.00
+25%     2325731.25
+50%     2477402.00
+75%     2677602.25
+max     6026825.00
+Name: patrimoine_moyen_euros, dtype: float64
+```
 
 peut également extraire une métrique particulière ::
 
-```
-surveys_df [ 'poids']. min ()
-surveys_df [ 'poids'].max ()
-de surveys_df [ 'poids']. moyenne ()
-de surveys_df [ 'poids']. std ()
-Nombrede surveys_df [ 'poids'] ()
-```
-
-
-Mais si nous voulons extraire des informations à l'aide d'une ou plusieurs variables, par exemple le sexe,
-nous pouvons utiliser la méthode `.groupby` de Pandas **. Une fois que nous avons créé
-un groupe ** DataFrame ** , nous pouvons calculer des statistiques en fonction du groupe de notre choix.
-
-```
-# Pooled parsexe
-grouped_data = surveys_df.groupby ( 'sexe')
+```python
+isf_df['patrimoine_moyen_euros']. min ()
+isf_df['patrimoine_moyen_euros'].max ()
+isf_df['patrimoine_moyen_euros'].mean()
+isf_df['patrimoine_moyen_euros'].std()
+isf_df['patrimoine_moyen_euros'].count()
 ```
 
 
-La fonction** `describe` ** Panda renvoiestatistiques descriptivesy compris:
-moyenne, meadiana, max, min, std et compte pour une colonne particulière des
+Mais si nous voulons extraire des informations à l'aide d'une ou plusieurs variables, par exemple le sexe, nous pouvons utiliser la méthode `.groupby` de *Pandas*. Une fois que nous avons créé un groupe **DataFrame** , nous pouvons calculer des statistiques en fonction du groupe de notre choix.
+
+```python
+# Groupe par région
+grouped_data = isf_df.groupby('Region')
+```
+
+
+La **fonction** `describe` de Pandas renvoie des statistiques descriptives y compris:
+moyenne, meadiana, max, min, std et comptage pour une colonne particulière des
 données. La fonctionne `describe` renvoie que les valeurs de ces statistiques pour les
 colonnes numériques.
 
-```
-# Statistiques pour toussexe colonnes numériques
+```python
+# Statistiques pour toutes les colonnes numériques
 grouped_data.describe()
-# Renvoie la moyenne de chaque colonne numérique sexe
+# Renvoie la moyenne de chaque colonne numérique 
 grouped_data.mean ()
 
-
-
-`.langue-pythongrouped_data.mean () ' ** SORTIE: **
+```
 
 ```
-       plot_id \record_id année mois jour
-sexe
-18036.412046 6.583047 16.007138F 1990.644997 11.440854
-16.184286 6.392668 17754.835601 1990.480401 M 11.098282
-
-    hindfoot_length poids
-sexe
-28.836780F42.170555
-29.709578 42.995379M
-
+  nom_redevables  patrimoine_moyen_euros  impot_moyen_euros
+Region      
+AUVERGNE-RHONE-ALPES  362.11  2532303.83  9437.80
+BOURGOGNE-FRANCHE-COMTE   190.91  2588278.55  10198.09
+BRETAGNE  355.56  2489823.22  8810.44
+CENTRE-VAL DE LOIRE   253.80  2446725.60  9840.60
+CORSE   197.50  2631619.00  11437.00
+GRAND-EST   302.35  2718509.35  10713.05
+GUADELOUPE  101.00  2603757.00  10851.00
+GUYANE  58.00   2729433.50  14088.50
+ILE-DE-FRANCE   788.74  2576787.71  10013.73
 ```
-.langue-python
 
-commande ` groupby` est très puissant et ne permet pas la génération rapide de
+La commande `groupby` est très puissant et permet la génération rapide de
 statistiques descriptives.
 
-> ## Reto -  des données
+## Défi
 
-Description>> 1. Combien de personnes sontfemmes f` et combien sont ``m`?hommes
+> 1. Combien des redevables existent par departement ?
 > 2. Que se passe-t-il lorsque vous groupez sur deux colonnes à l'aide de l'instruction suivante
 >    et que vous prenez ensuite les valeurs moyennes:
->   - `grouped_data2 = survey_df.groupby (['plot_id', 'sex']) '
->   - `grouped_data2.mean ()`
-> 3. Calculez les statistiques de poids descriptives pour chaque site. Conseil:
+>    `grouped_data2 = isf_df.groupby(['Region', 'Departements'])` 
+>    `grouped_data2.mean()`
+> 3. Calculez les statistiques de l'impot moyen pour chaque département. Conseil:
 >    Vous pouvez utiliser la syntaxe suivante pour créer uniquement des statistiques pour une
->   colonne de vos données
->   `By_site [ 'poids']. Describe
-
-()` >>
->> ##que vous avezbon défi # 3T?
->> ** Une sortie pedaxo pour le défi 3 ressemble: **
->>
->> ```
->>  site
->>  1comte 1903,000000
->>        51,822911 signifie
->>        std 38,176670
->>        min 4,000000
->>        25%30,000000>
->        50%44,000000
->>        75% 53,000000
->>        max 231,000000
->>          ...
->> ```
->> {:
-.Output}> 
+>   colonne de vos données   `par_departement['impot_moyen_euros'].describe()`
 
 
-Créationstatistiques ## comptages rapidement avec Pandas
+## Compter rapidement avec Pandas
 
-Maintenant, comptons le nombre d'échantillons de chaque espèce. Nous pouvons le faire
-de différentes manières, mais nous utiliserons `groupby`method` combiné à ** the count ()`**.
+Maintenant, comptons le nombre de registres de chaque région. Nous pouvons le faire
+de différentes manières, mais nous utiliserons `groupby` combiné à `count()`.
 
+```python
+# Comptez le nombre d'échantillons par région
+counts_by_region = isf_df.groupby('Region')["Departements"].count()
+print(counts_by_region)
 ```
-# Comptez le nombre d'échantillons par espèces
-species_counts = surveys_df.groupby ( 'species_id') count () [ 'record_id']
-impression (species_counts)
-```.
-.langue-python,
-
-O  peut aussi compter lignes ayant les espèces "DO":
-
-```
-surveys_df.groupby( 'species_id') [ ''] rECORD_ID count () [ 'DO']
-```
-{:
-
-.langue-python}.> ## Challenge - Making une
-
-liste >> Quelle autre façonlà pour créer une liste d'espèces et associée `count` 
-de>  échantillons de données? Astuce: vous pouvez faire exécuter les fonctions
->  `count`, ` min`, etc. dans un groupe ** DataFrame ** de la même manière que
-> cela  se fait dans un DataFrame
-
 
 ## Fonctions mathématiques de base
 
-Si nous le voulons, nous pouvons effectuer des opérations dans une colonne de
-données. Par exemple, multiplions toutes les valeurs de poids par 2. Une utilisation
-plus utile pourrait être de normaliser les données avec la moyenne, la surface ou une autre valeur
-calculée de nos données.
+Nous pouvons effectuer des opérations dans une colonne de
+données. Par exemple, multiplions toutes les valeurs du patrimoine moyen par 2. Une utilisation
+plus utile pourrait être de normaliser les données avec la moyenne, l'écart type ou une autre valeur calculée de nos données.
 
+```python
+# Multipliant toutes les valeurs du patrimioine moyen pour 2
+isf_df["patrimoine_moyen_euros"] * 2
 ```
-# Multipliant toutesvaleurs de poids pour 2
-surveys_df [ « poids »] * 2
-```
 
 
-données # de Graphing rapidement et facilementPandas
+## Graphiques avec Pandas
 
-nospeuvent également graphiqueaide Pandas de statistiques descriptives.
+Nous peuvons également faire des graphiques à l'aide de Pandas à propos des statistiques descriptives.
 
-```
+```python
 # Assurez-vous que les images apparaissent insérées dans iPython Notebook
 % matplotlib inline
 # Créez un graphique à barres
-espèces_counts.plot (kind = 'bar');
+# Registres par région
+counts_by_region.plot(kind = 'bar')
 ```
-{:
 
-.langue-python}!deespèces[sitespoids](../fig/countPerSpecies.png)
-Chiffres espèces par site
+On peut aussi voir combien des redevables ont été enregistrés par departement:
 
-peut aussi voir combien d'animaux ont été capturés parsite:
-
-```
-TOTAL_COUNT = surveys_df. groupby ('plot_id') ['record_id']. nunique ()
+```python
+par_departement = isf_df.groupby('Departements')['nom_redevables'].nunique()
 # Nous avons également tracé ce
-total_count.plot (kind = 'bar');
+par_departement.plot(kind = 'bar')
 ```
 
 
-.langue-python> ## Challenge -
+# Défi
 
-Graphique >> 1. Créez un graphique du poids moyen des espèces par site.
-> 2. Créez un graphique du total des hommes par rapport au total des femmes pour
->    l'ensemble de données.
+> 1. Créer un graphique du poids patrimoine moyen par departement.
+> 2. Créer un graphique du patrimoine moyen par commune que pour la région Ile-de-France
 
-
-.Challenge> ## fin  Défi
-
->>graphique Crée ungraphique à barres empiléesle poids sur l'axe Y, et la
-variable> empilementsexe. Le graphique doit indiquer le poids total par sexe
-> pour chaque site. Voici quelques conseils qui peuvent vous aiderrésoudre le défi sont les
- 
-
-suivants>: >> * [Pour plus d'informations sur le graphique des pandas, visitez le lien suivant.] (http://pandas.pydata.org/pandas-docs/stable/visualization.html#basic-plotting-plot)
-> * Vous pouvez utiliser le code suivant pour créer un graphique de barres empilées mais
->    mais les données à empiler doivent être dans des colonnes différentes. Voici un
-petit>    exemple des données où « a », « b » et « c » sontgroupes, et « un » et « deux »
-sont>    sousgroupes.
-
->> 
-```> d = 
-> pds.DataFrame (d)
-> ```
-> 
-
-.langue-python >> montre les  suivantes
-
-données>> 
-```>       un
-deux>   1
-1>   B 2
-2>   c Mars
-3>   d NaN
-4> 
-```> 
-
-.output >> nous pouvons  cettegraphique
-
->> avec 
-```> # Graficar empiléstelle sorte quedonnées de l'une «des colonnes et 'deux' sont
-empilés> = my_df pds.DataFrame
-(d)> my_df.plot (type = 'bar' empilés = True , title = "le titre de mon
-graphique")> 
-```> 
-
-.langue-python >> [empilésàgraphiquebarres]
-
-(../ fig / stackedBar1.png) >> * Nous pouvons utiliser la méthode `.unstack ()` pour transformer les données groupées en
->    colonnes pour chaque graphique. Essayez de lancer `.unstack ()` dans un DataFrame
->    précédent et voyez ce qu’il faut.
-
->> commencertransformer les données misescommun (par site etsexe) dans un
-arrangement dépilé> crée alors un graphique empilé.
-
->>
->> ## Solutions pour le dernier défi
->>
->> données Premières agrupemos par site etsexe, puis calculer le total pour
->>. chaque site
->>
->> ```
->> by_site_sex = surveys_df.groupby ([ 'plot_id', 'sexe'])
->> site_sex_count = by_site_sex [ 'poids'] somme ()
->> {```.
->> .Langue -python}
->>
->> Ceci calcule la somme des poids pour chaque sexe par site sous forme de tableau
->>
->> ```
->> sexe de site
->> plot_id sexe
->> 1 F 38253
->>          M 59979
->> 2 F 50144
->>          M 57250
->> 3 F 27251
->>          M 28253
->> 4 F 3979649377
->>          M
->> <le reste a été omis pour abréger>
->> ```
->> 
->>
->> >> maintenantutilisera .unstack`()` dans les données misescommun pour comprendre comment le poids
->> total pour chaque sexe contribue à chaque site.
->>
->> ```
->> by_site_sex = surveys_df.groupby ([ 'plot_id', 'sexe'])
->> site_sex_count = by_site_sex [ 'poids']. Somme ()
->> site_sex_count.unstack ()
->> ~~ ~
->> 
->>
->> La méthode `unstack` ci-dessus affiche le résultat suivant:
->>
->> ```
->> sex FM
->> plot_id
->> 1 38253 59979
->> 2 50144 57250
->> 3 27251 28253
->> 4 39796 49377
->> <les autres sites sont omis pour le briefing>
->> ```
->> 
->>
->> Nous créons maintenant un graphique à barres empilées avec les données où le poids pour chaque
->> sexe, il est empilé par site.
->>
->> Au lieu d'afficher commetable, nous pouvons tracer les données empilant des données
->> de chaque sexe comme suit:
->>
->> ```
->> by_site_sex = surveys_df.groupby ([ « plot_id », « sexe » ])
->> site_sex_count = by_site_sex [ 'poids']. sum ()
->> = spc site_sex_count.unstack ()
->> s_plot = spc.plot (type = 'bar' = True empilée, title = « poids total parsite etsexe ")
->> s_plot.set_ylabel (" poids ")
->> s_plot.set_xlabel (" Terrain « )
->> {```:
->> 
->>
->> .langue-python}[Figurebarres empilées](!../figstackedBar.png/)
-> 
-
-
-
-
-
-
+```python
+isf_df[isf_df["Region"] == "ILE-DE-FRANCE"][["Commune", "patrimoine_moyen_euros"]].set_index("Commune").plot(figsize=(30,10),kind="bar")
+```
 
