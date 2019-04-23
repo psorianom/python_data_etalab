@@ -8,7 +8,7 @@ dependencies:
   - blas=1.0=mkl
   - bleach=3.1.0=py_0
   - brewer2mpl=1.4.1=py_3
-  - ca-certificates=2019.3.9=hecc5488_0
+  - ca-certificates=2019.1.23=0
   - certifi=2019.3.9=py36_0
   - cycler=0.10.0=py_1
   - dbus=1.13.6=h746ee38_0
@@ -61,7 +61,7 @@ dependencies:
   - notebook=5.7.8=py36_0
   - numpy=1.16.2=py36h7e9f1db_0
   - numpy-base=1.16.2=py36hde5b4d6_0
-  - openssl=1.1.1b=h14c3975_1
+  - openssl=1.1.1b=h7b6447c_1
   - pandas=0.22.0=py36_1
   - pandoc=2.2.3.2=0
   - pandocfilters=1.4.2=py_1
@@ -86,6 +86,7 @@ dependencies:
   - qtconsole=4.4.3=py_0
   - readline=7.0=h7b6447c_5
   - scipy=1.2.1=py36h7c811a0_0
+  - seaborn=0.9.0=py36_0
   - send2trash=1.5.0=py_0
   - setuptools=41.0.0=py36_0
   - sip=4.18=py36_1
